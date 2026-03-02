@@ -131,10 +131,34 @@ if (contactForm) {
             message,
         ];
 
-        const mailto = `mailto:RehmaxDigitals@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+        const mailto = `mailto:rehmaxdigitals@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
 
-        window.location.href = mailto;
-        showNotification('Opening your email app…', 'success');
+        // Some browsers (especially mobile) can ignore programmatic location changes to mailto.
+        // Use a fallback <a> click which tends to be more reliable.
+        let launched = false;
+        try {
+            window.location.assign(mailto);
+            launched = true;
+        } catch (_) {
+            launched = false;
+        }
+
+        if (!launched) {
+            try {
+                const a = document.createElement('a');
+                a.href = mailto;
+                a.style.display = 'none';
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                launched = true;
+            } catch (_) {
+                launched = false;
+            }
+        }
+
+        if (launched) showNotification('Opening your email app…', 'success');
+        else showNotification('Could not open your email app. Please email us at rehmaxdigitals@gmail.com', 'error');
     });
 }
 
