@@ -596,7 +596,7 @@ button {
     cursor: pointer;
     font-weight: 800;
     background: #111;
-        border-radius: 10px;
+    border-radius: 10px;
 
     color: #fff;
     transition: all var(--transition);
@@ -775,19 +775,56 @@ button {
     opacity: 0.95;
 }
 
-.mosaic-mini--teal { background: #2bd0c6; }
-.mosaic-mini--red { background: #ff4b4b; color: #fff; }
-.mosaic-mini--mint { background: #7be3bf; }
-.mosaic-mini--yellow { background: #ffd24d; }
-.mosaic-mini--charcoal { background: #2a2a2a; color: #fff; }
-.mosaic-mini--pink { background: #ff6aa2; color: #fff; }
+.mosaic-mini--teal {
+    background: #2bd0c6;
+}
 
-.mosaic-mini--teal .mosaic-mini__media { background-position: 58% 33.5%; }
-.mosaic-mini--red .mosaic-mini__media { background-position: 78% 33.5%; }
-.mosaic-mini--mint .mosaic-mini__media { background-position: 58% 37.5%; }
-.mosaic-mini--yellow .mosaic-mini__media { background-position: 78% 37.5%; }
-.mosaic-mini--charcoal .mosaic-mini__media { background-position: 58% 41.5%; }
-.mosaic-mini--pink .mosaic-mini__media { background-position: 78% 41.5%; }
+.mosaic-mini--red {
+    background: #ff4b4b;
+    color: #fff;
+}
+
+.mosaic-mini--mint {
+    background: #7be3bf;
+}
+
+.mosaic-mini--yellow {
+    background: #ffd24d;
+}
+
+.mosaic-mini--charcoal {
+    background: #2a2a2a;
+    color: #fff;
+}
+
+.mosaic-mini--pink {
+    background: #ff6aa2;
+    color: #fff;
+}
+
+.mosaic-mini--teal .mosaic-mini__media {
+    background-position: 58% 33.5%;
+}
+
+.mosaic-mini--red .mosaic-mini__media {
+    background-position: 78% 33.5%;
+}
+
+.mosaic-mini--mint .mosaic-mini__media {
+    background-position: 58% 37.5%;
+}
+
+.mosaic-mini--yellow .mosaic-mini__media {
+    background-position: 78% 37.5%;
+}
+
+.mosaic-mini--charcoal .mosaic-mini__media {
+    background-position: 58% 41.5%;
+}
+
+.mosaic-mini--pink .mosaic-mini__media {
+    background-position: 78% 41.5%;
+}
 
 .services-masonry {
     display: grid;
@@ -810,6 +847,7 @@ button {
     display: block;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .masonry-card:hover {
@@ -818,7 +856,7 @@ button {
 }
 
 .masonry-card__content {
-    padding: 30px;
+    padding: 30px 30px 0 30px;
     position: relative;
     z-index: 2;
     height: 100%;
@@ -830,15 +868,16 @@ button {
     flex-grow: 1;
     display: flex;
     align-items: flex-end;
-    justify-content: flex-end;
-    width: 100%;
-    margin-top: 15px;
+    justify-content: center;
+    width: calc(100% + 60px);
+    margin: 20px -30px 0 -30px;
 }
 
 .masonry-card__img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
     transition: transform 0.3s ease;
 }
 
@@ -1711,6 +1750,10 @@ button {
     box-shadow: var(--shadow);
     border: 1px solid var(--border);
     transition: all var(--transition);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
 }
 
 .feature-card:hover {
@@ -1742,6 +1785,26 @@ button {
     color: var(--muted);
     font-size: 13px;
     line-height: 1.6;
+}
+
+.feature-card__more {
+    margin-top: auto;
+    padding-top: 18px;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all var(--transition);
+}
+
+.feature-card:hover .feature-card__more {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* About Page */
@@ -2455,5 +2518,405 @@ html.js .fade-up.active {
 
     .team-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   ENHANCED MOBILE & TABLET STYLES
+   ============================================ */
+@media (max-width: 900px) {
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px;
+    }
+
+    .services-masonry {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .masonry-col:nth-child(1) .masonry-card {
+        min-height: 350px;
+    }
+
+    .lead-strip__form {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .lead-strip__btn {
+        grid-column: span 2;
+    }
+
+    .stats__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .topbar {
+        display: none;
+    }
+
+    .header {
+        top: 0;
+        padding: 10px 0;
+    }
+
+    .brand__logo {
+        height: 55px;
+    }
+
+    .nav-toggle {
+        margin-left: auto;
+        padding: 10px;
+    }
+
+    .nav {
+        padding-top: 90px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .hero__slider {
+        height: 500px;
+    }
+
+    .hero__title {
+        font-size: 30px;
+        max-width: 100%;
+        padding: 0 15px;
+        line-height: 1.25;
+    }
+
+    .hero__text {
+        font-size: 15px;
+        padding: 0 15px;
+        margin-bottom: 25px;
+    }
+
+    .hero__cta {
+        justify-content: center;
+        gap: 12px;
+        flex-direction: column;
+        width: 100%;
+        padding: 0 25px;
+        box-sizing: border-box;
+    }
+
+    .hero__cta .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 20px;
+    }
+
+    .hero__arrow {
+        display: none;
+    }
+
+    .lead-strip {
+        margin-top: -30px;
+        padding: 0 15px;
+    }
+
+    .lead-strip__card {
+        padding: 25px 20px;
+        border-radius: 20px;
+    }
+
+    .lead-strip__title {
+        font-size: 20px;
+        margin-bottom: 20px;
+        line-height: 1.3;
+        font-weight: 900;
+    }
+
+    .lead-strip__form {
+        grid-template-columns: 1fr !important;
+        gap: 12px;
+    }
+
+    .lead-strip__btn {
+        grid-column: 1 !important;
+        height: 50px;
+        font-size: 15px;
+        border-radius: 12px;
+    }
+
+    .lead-strip__input {
+        height: 50px;
+        font-size: 14px;
+        border-radius: 12px;
+    }
+
+    .stats {
+        padding: 40px 0;
+    }
+
+    .stats__grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 20px 10px;
+    }
+
+    .stats__item {
+        padding: 15px 10px;
+    }
+
+    .stats__number {
+        font-size: 32px;
+    }
+
+    .stats__plus {
+        font-size: 22px;
+    }
+
+    .stats__label {
+        font-size: 13px;
+        margin-top: 4px;
+    }
+
+    .what {
+        padding: 50px 0;
+    }
+
+    .what__title {
+        font-size: 26px;
+    }
+
+    .what__sub {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+
+    .services-masonry {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+    }
+
+    .masonry-card__content {
+        padding: 25px 25px 0 25px;
+    }
+
+    .masonry-card__title {
+        font-size: 22px;
+    }
+
+    .masonry-col {
+        gap: 15px;
+    }
+
+    .masonry-col:nth-child(1) .masonry-card {
+        min-height: 280px;
+    }
+
+    .masonry-card__img-container {
+        margin: 20px -25px 0 -25px;
+        width: calc(100% + 50px);
+    }
+
+    .masonry-card__img {
+        width: 100% !important;
+        margin: 0;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+    }
+
+    .feature-card {
+        padding: 24px 20px;
+    }
+
+    .cta-banner {
+        padding: 50px 0;
+    }
+
+    .cta-banner__title {
+        font-size: 24px;
+    }
+
+    .cta-banner__feature {
+        text-align: left;
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+
+    .tiles {
+        padding: 50px 0;
+    }
+
+    .tiles__title {
+        font-size: 26px;
+    }
+
+    .tiles__grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    .tile {
+        height: 260px;
+    }
+
+    .trusted {
+        padding: 40px 0;
+    }
+
+    .trusted__title {
+        font-size: 15px;
+    }
+
+    .trusted__logos {
+        gap: 10px;
+    }
+
+    .trusted__logo {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+
+    .how {
+        padding: 50px 0;
+    }
+
+    .how__title {
+        font-size: 26px;
+    }
+
+    .how__grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+    }
+
+    .reviews {
+        padding: 50px 0;
+    }
+
+    .reviews__title {
+        font-size: 26px;
+    }
+
+    .reviews__grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    .review {
+        padding: 24px;
+    }
+
+    .blog {
+        padding: 50px 0;
+    }
+
+    .blog__title {
+        font-size: 26px;
+    }
+
+    .blog__grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    .final-cta {
+        padding: 0;
+    }
+
+    .final-cta__inner {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .final-cta__big {
+        font-size: 22px;
+        margin-top: 6px;
+    }
+
+    .final-cta__left,
+    .final-cta__right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer {
+        padding: 50px 0 20px;
+        text-align: center;
+    }
+
+    .footer__grid {
+        grid-template-columns: 1fr !important;
+        gap: 35px;
+        text-align: center;
+    }
+
+    .footer__socials {
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .footer__contact-item {
+        justify-content: center;
+    }
+
+    .footer__title {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero__slider {
+        height: 480px;
+    }
+
+    .hero__title {
+        font-size: 26px;
+    }
+
+    .hero__text {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .lead-strip__title {
+        font-size: 18px;
+    }
+
+    .tiles__title {
+        font-size: 24px;
+    }
+
+    .how__title {
+        font-size: 24px;
+    }
+
+    .reviews__title {
+        font-size: 24px;
+    }
+
+    .cta-banner__title {
+        font-size: 22px;
+    }
+
+    .masonry-card__title {
+        font-size: 20px;
+    }
+
+    .masonry-card::before {
+        font-size: 34px;
+        left: 15px;
+    }
+
+    .stats__number {
+        font-size: 28px;
+    }
+
+    .stats__plus {
+        font-size: 20px;
     }
 }
