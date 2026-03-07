@@ -315,6 +315,10 @@ button {
     border-radius: 2px;
 }
 
+.nav-close {
+    display: none;
+}
+
 /* ============ BUTTONS ============ */
 .btn {
     border-radius: 999px;
@@ -2376,6 +2380,31 @@ html.js .fade-up.active {
 
     .nav.active {
         transform: translateY(0);
+    }
+
+    .nav-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(var(--primary-rgb), 0.1);
+        color: var(--primary);
+        font-size: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all var(--transition);
+        z-index: 1000;
+    }
+
+    .nav-close:hover {
+        background: var(--primary);
+        color: #fff;
+        transform: rotate(90deg);
     }
 
     .nav-toggle {

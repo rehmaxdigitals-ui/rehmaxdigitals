@@ -37,15 +37,31 @@ const navToggle = qs('#navToggle');
 const navMenu = qs('#navMenu');
 
 if (navToggle && navMenu) {
+    /* Create close button for mobile nav */
+    const navClose = document.createElement('button');
+    navClose.className = 'nav-close';
+    navClose.setAttribute('aria-label', 'Close menu');
+    navClose.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+    navMenu.insertBefore(navClose, navMenu.firstChild);
+
     navToggle.addEventListener('click', () => {
         navToggle.classList.toggle('active');
         navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     });
+
+    navClose.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+
     qsa('.nav__link').forEach(link => {
         if (!link.classList.contains('nav__link--has-child')) {
             link.addEventListener('click', () => {
                 navToggle.classList.remove('active');
                 navMenu.classList.remove('active');
+                document.body.style.overflow = '';
             });
         }
     });
