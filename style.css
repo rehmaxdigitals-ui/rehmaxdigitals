@@ -2330,15 +2330,30 @@ html.js .fade-up.active {
 
 @media (max-width: 768px) {
     .topbar__left {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        gap: 8px;
+    }
+
+    .topbar__item {
+        font-size: 9px;
+        gap: 4px;
+        white-space: nowrap;
+    }
+
+    .topbar__right {
         display: none;
     }
 
     .topbar__inner {
-        justify-content: flex-end;
+        justify-content: center;
+        padding: 6px 12px;
     }
 
     .header {
-        top: 32px;
+        top: 28px;
+        padding: 8px 0;
     }
 
     .nav {
@@ -2365,6 +2380,13 @@ html.js .fade-up.active {
 
     .nav-toggle {
         display: flex;
+    }
+
+    .bar {
+        background: var(--primary);
+        width: 24px;
+        height: 2px;
+        margin: 4px 0;
     }
 
     .nav__dropdown {
@@ -2411,8 +2433,15 @@ html.js .fade-up.active {
         border-radius: var(--radius);
     }
 
-    .header__actions .btn--outline {
-        display: none;
+    .btn--header-req {
+        padding: 6px 12px;
+        font-size: 11px;
+        gap: 4px;
+        border-radius: 999px;
+    }
+
+    .btn--header-req i {
+        font-size: 14px;
     }
 
     .hero__slider {
@@ -2555,12 +2584,8 @@ html.js .fade-up.active {
 }
 
 @media (max-width: 768px) {
-    .topbar {
-        display: none;
-    }
-
     .header {
-        top: 0;
+        top: 25px;
         padding: 10px 0;
     }
 
