@@ -4,9 +4,9 @@
 
 /* CSS Variables */
 :root {
-    --primary: #ff2b2b;
-    --primary-dark: #e11919;
-    --primary-rgb: 255, 43, 43;
+    --primary: #9333ea;
+    --primary-dark: #7e22ce;
+    --primary-rgb: 147, 51, 234;
     --accent: #f36d21;
     --black: #111111;
     --black-2: #1c1c1c;
@@ -177,7 +177,7 @@ button {
 }
 
 .brand__logo {
-    height: 60px;
+    height: 35px;
     width: auto;
 }
 
@@ -2765,6 +2765,9 @@ html.js .fade-up.active {
 
     .what {
         padding: 50px 0;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     .what__title {
